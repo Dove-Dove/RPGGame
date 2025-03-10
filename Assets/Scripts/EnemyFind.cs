@@ -32,6 +32,7 @@ public class EnemyFind : MonoBehaviour
             float theta = Mathf.Acos(dot);
             // angleRange와 비교하기 위해 degree로 변환
             float degree = Mathf.Rad2Deg * theta;
+
             RaycastHit hit;
 
             // 시야각 판별
@@ -45,7 +46,7 @@ public class EnemyFind : MonoBehaviour
                     if (hit.collider.tag == "Player")
                     {
                         isCollision = true;
-
+                        GetComponent<Enemy>().FindPlayerPos(target.position);
                     }
                     else
                     {
@@ -56,6 +57,7 @@ public class EnemyFind : MonoBehaviour
                 else
                 {
                     isCollision = true;
+                    GetComponent<Enemy>().FindPlayerPos(target.position);
                 }
 
             }

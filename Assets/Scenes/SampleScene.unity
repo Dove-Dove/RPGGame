@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 170330101}
   - component: {fileID: 170330100}
   - component: {fileID: 170330099}
-  - component: {fileID: 170330104}
   - component: {fileID: 170330103}
+  - component: {fileID: 170330104}
   m_Layer: 7
   m_Name: EnemyEx
   m_TagString: Enemy
@@ -250,9 +250,6 @@ MonoBehaviour:
   target: {fileID: 280365375}
   angleRange: 50
   radius: 7
-  isMutant: 0
-  mutantScanRange: 0
-  mutantRaius: 100
   isCollision: 0
 --- !u!114 &170330104
 MonoBehaviour:
@@ -261,7 +258,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170330098}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71bd72301a6921342b8220fddf607f07, type: 3}
   m_Name: 
