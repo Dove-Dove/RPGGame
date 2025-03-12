@@ -26,12 +26,16 @@ public class Enemy : MonoBehaviour
     //캐릭터 컨트롤러 컴포먼트
     CharacterController cc;
 
+    Vector3 orginPos;
+
 
     // Start is called before the first frame update
     void Start()
     {
         state = EnemyState.Idle;
         cc = GetComponent<CharacterController>();
+
+        orginPos = transform.position;
     }
 
     // Update is called once per frame
@@ -69,7 +73,12 @@ public class Enemy : MonoBehaviour
 
     void Move()
     {
-        if (FindPlayer)
+        if (!FindPlayer)
+        {
+            state = EnemyState.Stop;
+        }
+
+        else if (FindPlayer)
         {
             MoveSpeed = 3.0f;
             Vector3 dir = (PlayerPos - transform.position).normalized;
@@ -86,6 +95,8 @@ public class Enemy : MonoBehaviour
 
     void Stop()
     {
+        //상태를 멈춤으로 봐꿈
+        state = EnemyState.Idle;
 
     }
 
