@@ -22,6 +22,9 @@ public class PlayerMove : MonoBehaviour
     //마우스 속도 
     public float rotSpeed = 200.0f;
 
+    //애니메이터
+    Animator anim;
+
     float mx = 0.0f;
 
     void Start()
@@ -29,6 +32,8 @@ public class PlayerMove : MonoBehaviour
         cc = GetComponent<CharacterController>();
 
         rb = GetComponent<Rigidbody>();
+
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -42,9 +47,13 @@ public class PlayerMove : MonoBehaviour
 
         dir = Camera.main.transform.TransformDirection(dir);
 
+        // 블렌드 트리에 전달할 파라미터의 값을 설정한다
+        anim.SetFloat("MoveMotion", dir.magnitude);
+
         //캐릭터 Y축 속도에 맞춰 중력 수치를 적용한다.
         y_velocity += gravity * Time.deltaTime;
         dir.y = y_velocity;
+
 
         //마우스 움직임 관련 
         float mouse_X = Input.GetAxis("Mouse X");
